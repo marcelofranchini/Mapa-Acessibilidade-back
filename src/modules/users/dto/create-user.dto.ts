@@ -2,6 +2,7 @@ import {
   ArrayMinSize,
   IsArray,
   IsBoolean,
+  IsEmail,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -15,17 +16,15 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsOptional()
+  @IsEmail()
   public email: string;
 
   @IsString()
   @IsNotEmpty()
-  @IsOptional()
   public cpf: string;
 
   @IsString()
   @IsNotEmpty()
-  @IsOptional()
   public password: string;
 
   @IsString()

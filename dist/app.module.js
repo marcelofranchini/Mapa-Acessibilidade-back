@@ -15,6 +15,7 @@ const users_module_1 = require("./modules/users/users.module");
 const points_module_1 = require("./modules/points/points.module");
 const user_middleware_1 = require("./middleware/user.middleware");
 const login_module_1 = require("./modules/login/login.module");
+const axios_1 = require("@nestjs/axios");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -24,7 +25,7 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongo_1.MongoDBModule, users_module_1.UsersModule, points_module_1.PointsModule, login_module_1.LoginModule],
+        imports: [mongo_1.MongoDBModule, users_module_1.UsersModule, points_module_1.PointsModule, axios_1.HttpModule, login_module_1.LoginModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

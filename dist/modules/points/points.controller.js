@@ -28,13 +28,16 @@ let PointsController = class PointsController {
         return this.pointsService.findAll();
     }
     findOne(id) {
-        return this.pointsService.findOne(+id);
+        return this.pointsService.findOne(id);
+    }
+    find(id) {
+        return this.pointsService.findUseId(id);
     }
     update(id, updatePointDto) {
-        return this.pointsService.update(+id, updatePointDto);
+        return this.pointsService.update(id, updatePointDto);
     }
     remove(id) {
-        return this.pointsService.remove(+id);
+        return this.pointsService.remove(id);
     }
 };
 __decorate([
@@ -57,6 +60,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], PointsController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)('user/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], PointsController.prototype, "find", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),

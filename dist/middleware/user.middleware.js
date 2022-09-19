@@ -16,7 +16,7 @@ let UserMiddleware = class UserMiddleware {
             const verify = await (0, jwt_1.jwtVerify)(userToken);
             console.log(verify);
             if (!verify) {
-                throw new common_1.HttpException('Pacient não encontrado', 404);
+                throw new common_1.HttpException('token inválido', 404);
             }
             next();
         }

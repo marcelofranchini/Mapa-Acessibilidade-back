@@ -10,12 +10,17 @@ exports.PointsModule = void 0;
 const common_1 = require("@nestjs/common");
 const points_service_1 = require("./points.service");
 const points_controller_1 = require("./points.controller");
+const point_entity_1 = require("./entities/point.entity");
+const mongoose_1 = require("@nestjs/mongoose");
 let PointsModule = class PointsModule {
 };
 PointsModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: point_entity_1.Point.name, schema: point_entity_1.PointSchema }]),
+        ],
         controllers: [points_controller_1.PointsController],
-        providers: [points_service_1.PointsService]
+        providers: [points_service_1.PointsService],
     })
 ], PointsModule);
 exports.PointsModule = PointsModule;

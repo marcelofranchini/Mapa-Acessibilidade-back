@@ -47,7 +47,7 @@ export class UsersService {
         _id: id,
       },
       {
-        updateUserDto,
+        $set: updateUserDto,
       },
       {
         new: true,

@@ -6,9 +6,11 @@ import { UsersModule } from './modules/users/users.module';
 import { PointsModule } from './modules/points/points.module';
 import { UserMiddleware } from './middleware/user.middleware';
 import { LoginModule } from './modules/login/login.module';
+import { UsersService } from './modules/users/users.service';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [MongoDBModule, UsersModule, PointsModule, LoginModule],
+  imports: [MongoDBModule, UsersModule, PointsModule, HttpModule, LoginModule],
   controllers: [AppController],
   providers: [AppService],
 })

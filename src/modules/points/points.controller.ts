@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { PointsService } from './points.service';
 import { CreatePointDto } from './dto/create-point.dto';
 import { UpdatePointDto } from './dto/update-point.dto';
@@ -19,16 +27,20 @@ export class PointsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.pointsService.findOne(+id);
+    return this.pointsService.findOne(id);
+  }
+  @Get('user/:id')
+  find(@Param('id') id: string) {
+    return this.pointsService.findUseId(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePointDto: UpdatePointDto) {
-    return this.pointsService.update(+id, updatePointDto);
+    return this.pointsService.update(id, updatePointDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.pointsService.remove(+id);
+    return this.pointsService.remove(id);
   }
 }
