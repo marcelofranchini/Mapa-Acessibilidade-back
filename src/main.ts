@@ -12,7 +12,7 @@ async function bootstrap() {
   // app.use(compression());
   app.use(helmet());
 
-  await app.listen(process.env.PORT, () => {
+  await app.listen(process.env.PORT || 3000, () => {
     console.log(mongoose.STATES[mongoose.connection.readyState]);
     console.log(`server linten on Port: ${process.env.PORT}`);
   });
