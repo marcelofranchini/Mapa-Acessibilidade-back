@@ -1,3 +1,4 @@
+import { PointsController } from './modules/points/points.controller';
 import { UsersController } from './modules/users/users.controller';
 import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -28,6 +29,7 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(UserMiddleware)
-      .forRoutes({ path: '/users', method: RequestMethod.GET });
+      .exclude({ path: 'points', method: RequestMethod.GET })
+      .forRoutes(UsersController, PointsController);
   }
 }

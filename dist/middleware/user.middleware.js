@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserMiddleware = void 0;
 const common_1 = require("@nestjs/common");
-const jwt_1 = require("../modules/utils/jwt");
+const jwt_1 = require("../utils/jwt");
 const users_service_1 = require("../modules/users/users.service");
 let UserMiddleware = class UserMiddleware {
     constructor(usersService) {
@@ -21,12 +21,14 @@ let UserMiddleware = class UserMiddleware {
         try {
             const userToken = (req.headers['x-access-token'] || '');
             const verify = await (0, jwt_1.jwtVerify)(userToken);
+            const { idUser } = verify;
             if (!verify) {
                 throw new common_1.HttpException('token inválido', 404);
             }
-            const { id } = verify;
-            const abc = this.usersService.findOneCpf('fdfdf');
-            console.log(abc);
+            const userExist = await this.usersService.findOne(idUser);
+            if (!userExist) {
+                throw new common_1.HttpException('usuário não cadastrado', 404);
+            }
             next();
         }
         catch (err) {

@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const points_controller_1 = require("./modules/points/points.controller");
 const users_controller_1 = require("./modules/users/users.controller");
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
@@ -24,7 +25,8 @@ let AppModule = class AppModule {
     configure(consumer) {
         consumer
             .apply(user_middleware_1.UserMiddleware)
-            .forRoutes({ path: '/users', method: common_1.RequestMethod.GET });
+            .exclude({ path: 'points', method: common_1.RequestMethod.GET })
+            .forRoutes(users_controller_1.UsersController, points_controller_1.PointsController);
     }
 };
 AppModule = __decorate([

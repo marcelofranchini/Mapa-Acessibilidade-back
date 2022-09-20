@@ -29,7 +29,7 @@ export declare class Point {
     description: string;
     image: string;
     coord: {
-        long: string;
+        lng: string;
         lat: string;
     };
     idUser: string;

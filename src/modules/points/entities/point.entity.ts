@@ -16,7 +16,7 @@ export class Point {
 
   @Prop({ type: Object, required: true })
   coord: {
-    long: string;
+    lng: string;
     lat: string;
   };
 

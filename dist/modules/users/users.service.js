@@ -16,8 +16,8 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
+const bcrypt_1 = require("../../utils/bcrypt");
 const user_entity_1 = require("./entities/user.entity");
-const bcrypt_1 = require("../utils/bcrypt");
 let UsersService = class UsersService {
     constructor(userModel) {
         this.userModel = userModel;
