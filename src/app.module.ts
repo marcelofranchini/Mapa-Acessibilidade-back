@@ -29,7 +29,10 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(UserMiddleware)
-      .exclude({ path: 'points', method: RequestMethod.GET })
+      .exclude(
+        { path: 'points', method: RequestMethod.GET },
+        { path: 'users', method: RequestMethod.POST },
+      )
       .forRoutes(UsersController, PointsController);
   }
 }
