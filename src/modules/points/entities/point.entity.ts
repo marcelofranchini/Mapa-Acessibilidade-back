@@ -16,12 +16,15 @@ export class Point {
 
   @Prop({ type: Object, required: true })
   coord: {
-    lng: string;
-    lat: string;
+    lng: number;
+    lat: number;
   };
 
   @Prop({ required: true })
   idUser: string;
+
+  @Prop({ required: true })
+  type: string;
 
   @Prop({ default: now() })
   createdAt: Date;
