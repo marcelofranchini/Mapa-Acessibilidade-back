@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CoordPointDto {
   @IsNotEmpty()
@@ -19,8 +19,8 @@ export class CreatePointDto {
   public idUser: string;
 
   @IsString()
-  @IsNotEmpty()
-  public image: string;
+  @IsOptional()
+  public image?: string;
 
   @IsString()
   @IsNotEmpty()
