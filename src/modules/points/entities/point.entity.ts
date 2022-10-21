@@ -11,7 +11,7 @@ export class Point {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   image: string;
 
   @Prop({ type: Object, required: true })
