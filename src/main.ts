@@ -7,7 +7,11 @@ import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
+  app.enableCors({
+    allowedHeaders: '*',
+    origin: 'https://mapaacessibilidadetcc.vercel.app',
+    credentials: true,
+  });
   // app.use(compression());
   app.use(helmet());
   app.use(bodyParser.json({ limit: '50mb' }));
