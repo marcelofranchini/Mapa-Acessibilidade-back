@@ -42,6 +42,20 @@ export class UsersService {
     return this.userModel.findOne({ cpf });
   }
   async update(id: string, updateUserDto: UpdateUserDto) {
+    const userExist: any = this.userModel.findById(id);
+
+    if (updateUserDto.cpf === '') {
+      updateUserDto.cpf = userExist.cpf;
+    }
+    if (updateUserDto.name === '') {
+      updateUserDto.name = userExist.name;
+    }
+    if (updateUserDto.email === '') {
+      updateUserDto.email = userExist.email;
+    }
+    if (updateUserDto.password === '') {
+      updateUserDto.password = undefined;
+    }
     const emailExist = await this.findOneEmail(updateUserDto?.email);
     const cpfExist = await this.findOneCpf(updateUserDto?.cpf);
     const hash = await hashCreate(updateUserDto.password);

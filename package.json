@@ -1,6 +1,6 @@
 {
   "name": "mapa-acessibilidade-back",
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:3000",
   "engines": {
     "node": "14.17.0"
 },
