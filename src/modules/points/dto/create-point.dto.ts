@@ -15,7 +15,6 @@ export class CreatePointDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsEmail()
   public idUser: string;
 
   @IsString()

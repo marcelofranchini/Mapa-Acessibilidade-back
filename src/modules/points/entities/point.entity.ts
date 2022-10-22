@@ -14,13 +14,13 @@ export class Point {
   @Prop({ required: false })
   image: string;
 
-  @Prop({ type: Object, required: false })
+  @Prop({ type: Object, required: true })
   coord: {
     lng: number;
     lat: number;
   };
 
-  @Prop({ required: false })
+  @Prop({ required: true })
   idUser: string;
 
   @Prop({ required: false })
