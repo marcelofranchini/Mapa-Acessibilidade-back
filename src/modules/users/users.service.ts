@@ -58,8 +58,10 @@ export class UsersService {
     }
     const emailExist = await this.findOneEmail(updateUserDto?.email);
     const cpfExist = await this.findOneCpf(updateUserDto?.cpf);
-    const hash = await hashCreate(updateUserDto.password);
-    updateUserDto.password = hash;
+    if (updateUserDto.password) {
+      const hash = await hashCreate(updateUserDto.password);
+      updateUserDto.password = hash;
+    }
 
     if (emailExist) {
       throw new HttpException('email já cadastrado.', 404);
