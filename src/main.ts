@@ -8,8 +8,17 @@ import * as bodyParser from 'body-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    allowedHeaders: ['x-access-token', 'Content-Type', '*'],
-    origin: ['https://mapaacessibilidadetcc.vercel.app', '*'],
+    allowedHeaders: [
+      'x-access-token',
+      'Content-Type',
+      'Access-Control-Allow-Origin',
+      '*',
+    ],
+    origin: [
+      'https://mapaacessibilidadetcc.vercel.app',
+      '*',
+      'http://localhost:3000',
+    ],
     credentials: true,
   });
   // app.use(compression());
