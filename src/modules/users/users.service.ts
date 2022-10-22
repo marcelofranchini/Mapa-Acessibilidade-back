@@ -46,11 +46,11 @@ export class UsersService {
     const cpfExist = await this.findOneCpf(updateUserDto?.cpf);
 
     if (emailExist) {
-      throw new HttpException('email já cadastrado', 404);
+      throw new HttpException('email já cadastrado.', 404);
     }
 
     if (cpfExist) {
-      throw new HttpException('cpf já cadastrado', 404);
+      throw new HttpException('cpf já cadastrado.', 404);
     }
     return this.userModel.findByIdAndUpdate(
       {
