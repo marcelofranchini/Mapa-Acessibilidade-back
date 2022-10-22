@@ -1,5 +1,9 @@
 {
   "name": "mapa-acessibilidade-back",
+  "proxy": "http://localhost:8000",
+  "engines": {
+    "node": "14.17.5"
+},
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -82,4 +86,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
+  
 }
