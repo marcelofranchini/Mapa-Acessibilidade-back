@@ -8,7 +8,7 @@ import * as bodyParser from 'body-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    allowedHeaders: ['x-access-token', 'Content-Type'],
+    allowedHeaders: ['x-access-token', 'Content-Type', '*'],
     origin: ['https://mapaacessibilidadetcc.vercel.app', '*'],
     credentials: true,
   });
