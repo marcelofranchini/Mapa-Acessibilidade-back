@@ -44,6 +44,8 @@ export class UsersService {
   async update(id: string, updateUserDto: UpdateUserDto) {
     const emailExist = await this.findOneEmail(updateUserDto?.email);
     const cpfExist = await this.findOneCpf(updateUserDto?.cpf);
+    const hash = await hashCreate(updateUserDto.password);
+    updateUserDto.password = hash;
 
     if (emailExist) {
       throw new HttpException('email já cadastrado.', 404);
