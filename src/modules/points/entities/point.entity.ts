@@ -5,25 +5,25 @@ export type PointDocument = Point & Document;
 
 @Schema()
 export class Point {
-  @Prop({ required: true })
+  @Prop({ required: false })
   title: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   description: string;
 
   @Prop({ required: false })
   image: string;
 
-  @Prop({ type: Object, required: true })
+  @Prop({ type: Object, required: false })
   coord: {
     lng: number;
     lat: number;
   };
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   idUser: string;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   type: string;
 
   @Prop({ default: now() })
