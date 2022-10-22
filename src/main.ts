@@ -1,12 +1,9 @@
 require('dotenv/config');
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import compression from 'compression';
 import helmet from 'helmet';
-import { PORT } from './config/env/server.constants';
 import mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
-
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
