@@ -5,6 +5,9 @@ import { DB_MONGO } from 'src/config/env/server.constants';
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.DB_MONGO, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
       connectionFactory: (connection) => {
         connection.on('connected', () => {
           console.log('is connected');
