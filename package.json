@@ -2,7 +2,7 @@
   "name": "mapa-acessibilidade-back",
   "proxy": "http://localhost:3000",
   "engines": {
-    "node": "14.21.1"
+    "node": "14.17.0"
 },
   "version": "0.0.1",
   "description": "",
@@ -11,7 +11,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "nest build --output public",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start2": "nest start",
     "start:dev": "nest start --watch",
