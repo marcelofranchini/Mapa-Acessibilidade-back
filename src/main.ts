@@ -22,7 +22,28 @@ async function bootstrap() {
   //   ],
   //   credentials: true,
   // });
-  app.enableCors();
+  // app.enableCors();
+
+  //   { key: 'Access-Control-Allow-Credentials', value: 'true' },
+  //   { key: 'Access-Control-Allow-Origin', value: '*' },
+  //   { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT' },
+  //   { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization' },
+  // ],
+  // },
+  // ];
+  // },
+  // async redirects() {
+  // return [];
+  // }
+  // };
+
+  app.enableCors({
+    credentials: true,
+    origin: '*',
+    methods: 'GET, PUT, POST, DELETE, PATCH',
+    allowedHeaders:
+      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization',
+  });
 
   // app.use(compression());
   app.use(helmet());
