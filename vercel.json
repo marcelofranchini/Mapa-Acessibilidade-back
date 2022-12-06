@@ -1,9 +1,8 @@
 {
     "version": 2,
-    "source": "/:path*",
     "headers": [
         {
-            "source": "/about.js",
+            "source": "/:path*",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Credentials",
