@@ -1,12 +1,9 @@
 {
   "name": "mapa-acessibilidade-back",
   "proxy": "http://localhost:3000",
-  "engines": {
-    "node": "14.21.1"
-},
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "marcelo",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
