@@ -7,20 +7,23 @@ import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    allowedHeaders: [
-      'x-access-token',
-      'Content-Type',
-      'Access-Control-Allow-Origin',
-      '*',
-    ],
-    origin: [
-      'https://mapaacessibilidadetcc.vercel.app',
-      '*',
-      'http://localhost:3000',
-    ],
-    credentials: true,
-  });
+
+  // app.enableCors({
+  //   allowedHeaders: [
+  //     'x-access-token',
+  //     'Content-Type',
+  //     'Access-Control-Allow-Origin',
+  //     '*',
+  //   ],
+  //   origin: [
+  //     'https://mapaacessibilidadetcc.vercel.app',
+  //     '*',
+  //     'http://localhost:3000',
+  //   ],
+  //   credentials: true,
+  // });
+  app.enableCors();
+
   // app.use(compression());
   app.use(helmet());
   app.use(bodyParser.json({ limit: '50mb' }));
