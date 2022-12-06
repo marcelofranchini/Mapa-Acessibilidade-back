@@ -6,7 +6,9 @@ import mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
 
   // app.enableCors({
   //   allowedHeaders: [
